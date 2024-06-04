@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Passport</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        .form-section {
+            display: none;
+        }
+        .form-section.active {
+            display: block;
+        }
+        .form-navigation {
+            margin-top: 20px;
+        }
+        .form-navigation button {
+            padding: 10px 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Passport Application Form</h1>
+        <form id="passportForm">
+            <!-- Section 1: Service Required -->
+            <div class="form-section active" id="section1">
+                <h2>Service Required</h2>
+                <label for="serviceRequired">Applying for:</label>
+                <select id="serviceRequired" name="serviceRequired" required>
+                    <option value="Fresh Passport">Fresh Passport</option>
+                    <option value="Re-issue of Passport">Re-issue of Passport</option>
+                </select><br><br>
+                <label>If re-issue, specify reason(s):</label><br>
+                <input type="checkbox" id="validityExpire" name="reissueReason" value="Validity Expired within 3 years/ Due to Expire">
+                <label for="validityExpire">Validity Expired within 3 years/ Due to Expire</label><br>
+                <input type="checkbox" id="pagesExhausted" name="reissueReason" value="Exhaustion of Pages">
+                <label for="pagesExhausted">Exhaustion of Pages</label><br>
+                <input type="checkbox" id="lostPassport" name="reissueReason" value="Lost Passport">
+                <label for="lostPassport">Lost Passport</label><br>
+                <input type="checkbox" id="damagedPassport" name="reissueReason" value="Damaged Passport">
+                <label for="damagedPassport">Damaged Passport</label><br><br>
+                <label for="typeApplication">Type of Application:</label>
+                <select id="typeApplication" name="typeApplication" required>
+                    <option value="Normal">Normal</option>
+                    <option value="Tatkaal">Tatkaal</option>
+                </select><br><br>
+                <label for="bookletType">Type of Passport Booklet:</label>
+                <select id="bookletType" name="bookletType" required>
+                    <option value="36 Pages">36 Pages</option>
+                    <option value="60 Pages">60 Pages</option>
+                </select><br><br>
+                <label for="validityRequired">Validity Required:</label>
+                <select id="validityRequired" name="validityRequired" required>
+                    <option value="10 Years">10 Years</option>
+                    <option value="Up to age 18">Up to age 18</option>
+                </select><br><br>
+                <div class="form-navigation">
+                    <button type="button" onclick="nextSection('section1', 'section2')">Next</button>
+                </div>
+            </div>
+
+            <!-- Section 2: Applicant Details -->
+            <div class="form-section" id="section2">
+                <h2>Applicant Details</h2>
+                <label for="givenName">Given Name:</label>
+                <input type="text" id="givenName" name="givenName" required><br><br>
+                <label for="surname">Surname:</label>
+                <input type="text" id="surname" name="surname" required><br><br>
+                <label for="otherNames">Are you known by any other names (aliases)?</label>
+                <select id="otherNames" name="otherNames" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select><br><br>
+                <label for="nameChanged">Have you ever changed your name?</label>
+                <select id="nameChanged" name="nameChanged" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select><br><br>
+                <label for="dob">Date of Birth (DD-MM-YYYY):</label>
+                <input type="date" id="dob" name="dob" required><br><br>
+                <label for="placeOfBirth">Place of Birth:</label>
+                <input type="text" id="placeOfBirth" name="placeOfBirth" required><br><br>
+                <label for="district">District:</label>
+                <input type="text" id="district" name="district" required><br><br>
+                <label for="state">State/ UT:</label>
+                <input type="text" id="state" name="state" required><br><br>
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" required><br><br>
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Transgender">Transgender</option>
+                </select><br><br>
+                <label for="maritalStatus">Marital Status:</label>
+                <select id="maritalStatus" name="maritalStatus" required>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Divorced">Divorced</option>
+                    <option value="Widow/Widower">Widow/Widower</option>
+                    <option value="Separated">Separated</option>
+                </select><br><br>
+                <label for="citizenship">Citizenship of India by:</label>
+                <select id="citizenship" name="citizenship" required>
+                    <option value="Birth">Birth</option>
+                    <option value="Descent">Descent</option>
+                    <option value="Registration/Naturalization">Registration/Naturalization</option>
+                </select><br><br>
+                <label for="pan">PAN (If available):</label>
+                <input type="text" id="pan" name="pan"><br><br>
+                <label for="voterId">Voter ID (If available):</label>
+                <input type="text" id="voterId" name="voterId"><br><br>
+                <label for="employment">Employment Type:</label>
+                <select id="employment" name="employment" required>
+                    <option value="PSU">PSU</option>
+                    <option value="Government">Government</option>
+                    <option value="Statutory Body">Statutory Body</option>
+                    <option value="Retired Government Servant">Retired Government Servant</option>
+                    <option value="Self Employed">Self Employed</option>
+                    <option value="Private">Private</option>
+                    <option value="Homemaker">Homemaker</option>
+                    <option value="Not Employed">Not Employed</option>
+                    <option value="Retired-Private Service">Retired-Private Service</option>
+                    <option value="Student">Student</option>
+                    <option value="Others">Others</option>
+                </select><br><br>
+                <label for="orgName">If employed in Government/ Statutory Body/ PSU, specify organization name:</label>
+                <input type="text" id="orgName" name="orgName"><br><br>
+                <label for="parentGovtServant">Is either of your parent (in case of minor)/ spouse, a government servant?</label>
+                <select id="parentGovtServant" name="parentGovtServant" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select><br><br>
+                <label for="education">Educational Qualification:</label>
+                <select id="education" name="education" required>
+                    <option value="7th pass or less">7th pass or less</option>
+                    <option value="Between 8th and 9th Standard">Between 8th and 9th Standard</option>
+                    <option value="10th pass and above">10th pass and above</option>
+                    <option value="Graduate and above">Graduate and above</option>
+                </select><br><br>
+                <label for="nonEcr">Are you eligible for Non-ECR category?</label>
+                <select id="nonEcr" name="nonEcr" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select><br><br>
+                <div class="form-navigation">
+                    <button type="button" onclick="previousSection('section2', 'section1')">Previous</button>
+                    <button type="button" onclick="nextSection('section2', 'section3')">Next</button>
+                </div>
+            </div>
+
+            <!-- Section 3: Family Details -->
+            <div class="form-section" id="section3">
+                <h2>Family Details</h2>
+                <label for="fatherName">Father's Name:</label>
+                <input type="text" id="fatherName" name="fatherName" required><br><br>
+                <label for="motherName">Mother's Name:</label>
+                <input type="text" id="motherName" name="motherName" required><br><br>
+                <label for="legalGuardianName">Legal Guardian's Name (if applicable):</label>
+                <input type="text" id="legalGuardianName" name="legalGuardianName"><br><br>
+                <label for="spouseName">Spouse's Name (if married):</label>
+                <input type="text" id="spouseName" name="spouseName"><br><br>
+                <div class="form-navigation">
+                    <button type="button" onclick="previousSection('section3', 'section2')">Previous</button>
+                    <button type="button" onclick="nextSection('section3', 'section4')">Next</button>
+                </div>
+            </div>
+
+            <!-- Section 4: Present Residential Address -->
+            <div class="form-section" id="section4">
+                <h2>Present Residential Address</h2>
+                <label for="houseNo">House No. and Street Name:</label>
+                <input type="text" id="houseNo" name="houseNo" required><br><br>
+                <label for="village">Village/ Town/ City:</label>
+                <input type="text" id="village" name="village" required><br><br>
+                <label for="districtPresent">District:</label>
+                <input type="text" id="districtPresent" name="districtPresent" required><br><br>
+                <label for="statePresent">State/ UT:</label>
+                <input type="text" id="statePresent" name="statePresent" required><br><br>
+                <label for="pinCode">Pin Code:</label>
+                <input type="text" id="pinCode" name="pinCode" required><br><br>
+                <label for="mobile">Mobile Number:</label>
+                <input type="text" id="mobile" name="mobile" required><br><br>
+                <label for="email">Email ID:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <div class="form-navigation">
+                    <button type="button" onclick="previousSection('section4', 'section3')">Previous</button>
+                    <button type="button" onclick="nextSection('section4', 'section5')">Next</button>
+                </div>
+            </div>
+
+            <!-- Section 5: Emergency Contact -->
+            <div class="form-section" id="section5">
+                <h2>Emergency Contact</h2>
+                <label for="emergencyName">Name and Address:</label>
+                <textarea id="emergencyName" name="emergencyName" required></textarea><br><br>
+                <label for="emergencyPhone">Phone Number:</label>
+                <input type="text" id="emergencyPhone" name="emergencyPhone" required><br><br>
+                <label for="emergencyEmail">Email:</label>
+                <input type="email" id="emergencyEmail" name="emergencyEmail"><br><br>
+                <div class="form-navigation">
+                    <button type="button" onclick="previousSection('section5', 'section4')">Previous</button>
+                    <button type="button" onclick="nextSection('section5', 'section6')">Next</button>
+                </div>
+            </div>
+
+            <!-- Section 6: Previous Passport/ Application Details -->
+            <div class="form-section" id="section6">
+                <h2>Previous Passport/ Application Details</h2>
+                <label for="prevPassportNum">Previous Passport Number:</label>
+                <input type="text" id="prevPassportNum" name="prevPassportNum"><br><br>
+                <label for="prevIssueDate">Date of Issue:</label>
+                <input type="date" id="prevIssueDate" name="prevIssueDate"><br><br>
+                <label for="prevExpiryDate">Date of Expiry:</label>
+                <input type="date" id="prevExpiryDate" name="prevExpiryDate"><br><br>
+                <label for="prevIssuePlace">Place of Issue:</label>
+                <input type="text" id="prevIssuePlace" name="prevIssuePlace"><br><br>
+                <label for="prevFileNum">File Number:</label>
+                <input type="text" id="prevFileNum" name="prevFileNum"><br><br>
+                <div class="form-navigation">
+                    <button type="button" onclick="previousSection('section6', 'section5')">Previous</button>
+                    <button type="button" onclick="nextSection('section6', 'section7')">Next</button>
+                </div>
+            </div>
+
+            <!-- Section 7: Self-Declaration -->
+            <div class="form-section" id="section7">
+                <h2>Self-Declaration</h2>
+                <label for="selfDeclaration">I hereby declare that:</label>
+                <textarea id="selfDeclaration" name="selfDeclaration" required></textarea><br><br>
+                <div class="form-navigation">
+                    <button type="button" onclick="previousSection('section7', 'section6')">Previous</button>
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function nextSection(current, next) {
+            document.getElementById(current).classList.remove('active');
+            document.getElementById(next).classList.add('active');
+        }
+
+        function previousSection(current, previous) {
+            document.getElementById(current).classList.remove('active');
+            document.getElementById(previous).classList.add('active');
+        }
+
+        function saveSectionData(sectionId) {
+            const section = document.getElementById(sectionId);
+            const inputs = section.querySelectorAll('input, select, textarea');
+            inputs.forEach(input => {
+                localStorage.setItem(input.name, input.value);
+            });
+            alert('Progress saved!');
+        }
+
+        window.onload = function() {
+            const sections = document.querySelectorAll('.form-section');
+            sections.forEach(section => {
+                const inputs = section.querySelectorAll('input, select, textarea');
+                inputs.forEach(input => {
+                    if (localStorage.getItem(input.name)) {
+                        input.value = localStorage.getItem(input.name);
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>
