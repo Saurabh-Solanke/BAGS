@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passport Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+
+
+    <style>
+
+        .sidebar {
+            min-height: 100vh;
+            background-color: #343a40;
+        }
+
+        .sidebar .list-group-item {
+            color: #fff;
+        }
+
+        .sidebar .list-group-item:hover {
+            background-color: #495057;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .sidebar {
+                display: block !important;
+            }
+
+            .content {
+                margin-left: 250px;
+            }
+        }
+
+
+
+
+
+
+        /* Custom Styles */
+        .custom-bg {
+          background-color: #f8f9fa; /* Light Gray Background */
+        }
+        .custom-title {
+          color: #007bff; /* Bootstrap Primary Color */
+        }
+
+
+        .front {
+            position: fixed;
+            display: none;
+            width: 90%;
+            max-width: 500px;
+            
+            top: 50%;
+            left: 50%;
+            background-color: rgb(217, 207, 207);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(7, 7, 7, 0.5);
+            transform: translate(-50%, -50%);
+            z-index: 1050;
+        
+        }
+
+        .backdrop {
+             display: none;
+            position: fixed;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(12, 12, 12, 0.8);
+            top: 1em;
+            /* z-index: 1040;   */
+        }
+      </style>
+
+</head>
+<body>
+
+    <div >
+         <!-- Top navigation-->
+        <nav class="navbar navbar-expand-lg border-bottom bg-secondary" >
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand ps-4" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16" style="color: black;">
+                        <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z"/>
+                    </svg>
+                </a>
+                
+                <!-- Menu -->
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                        <li class="nav-item active"><a class="nav-link text-dark" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="#!">About</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="#!">Contact Us</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <!-- <a class="dropdown-item" href="#!">Profile</a>
+                                <a class="dropdown-item" href="#!">Setting</a> -->
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" id="login">Login</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+ 
+        <div class="d-flex" style="height:100vh">
+            <!-- Sidebar-->
+            <nav class="navbar navbar-dark bg-secondary d-md-none">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+            <div class="collapse sidebar bg-secondary d-md-block">
+                <div class="list-group list-group-flush bg-dark">
+                    <a class="list-group-item list-group-item-action list-group-item-dark px-5" href="register.html">New User Registration</a>
+                    <!-- <a class="list-group-item list-group-item-action list-group-item-dark px-5" href="Figure.html">Existing User Login </a> -->
+                    <a class="list-group-item list-group-item-action list-group-item-dark px-5" href="list.html">Check Appointment Availability</a>
+                    <a class="list-group-item list-group-item-action list-group-item-dark px-5" href="Table.html">Track Application Status</a>
+                </div>
+            </div>
+
+            <!-- Page content wrapper-->
+            <div class="col-lg-9 col-md-8 p-4">
+    
+                <div class="container">
+                    <div class="card shadow p-3 bg-white rounded">
+                    <h2 class="text-primary text-center mb-4">Welcome to the Passport Application Home Page!</h2>
+                    
+                    <p class="lead">Here, you can find information about how to apply for a passport, check the status of your application, and more.</p>
+                    
+                    <h3 class="mt-5 mb-3">Steps to Apply for a Passport:</h3>
+                    <ol>
+                        <li>Gather the required documents, including proof of citizenship and identification.</li>
+                        <li>Complete the passport application form.</li>
+                        <li>Submit your application and required documents in person at a passport acceptance facility.</li>
+                    </ol>
+                
+                    <h3 class="mt-5 mb-3">Additional Information:</h3>
+                    <ul>
+                        <li>Learn about <a href="#" class="text-primary">passport renewal</a> and how to update passport information.</li>
+                        <li>Find <a href="#" class="text-primary">passport acceptance facilities</a> near you.</li>
+                        <li>Discover expedited passport services for <a href="#" class="text-primary">urgent travel needs</a>.</li>
+                        <li>Explore <a href="#" class="text-primary">passport fees</a> and payment options.</li>
+                    </ul>
+                
+                    <p class="mt-5">If you have any questions or concerns about the passport application process, please <a href="#" class="text-primary">contact us</a>. We are here to help!</p>
+                    
+                    <p class="mt-4">Already applied for a passport? You can track the status of your application online using our <a href="#" class="text-primary">Passport Application Status</a> tool. Simply provide your last name, date of birth, and the last four digits of your Social Security number.</p>
+
+
+                    <!-- login -->
+
+                    <div class="backdrop"></div>
+                    <div class="front ">
+                        <form class="rounded-pill" action="login.html" id="employeeForm">
+
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="Username or Email" required>
+                            
+                            
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                            
+                            <a href="forgot-password.html">Forgot Password?</a> 
+                            <a href="register.html">Register</a><br><br>
+                    
+                            <div class="d-flex justify-content-end" >
+                                <button type="submit" class="btn btn-primary rounded-pill me-1">Save</button>
+                                <button type="button" class="btn btn-danger rounded-pill ms-1" id="closeBtn">Close</button>
+                            </div>
+                        </form>
+ 
+                    </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+                        
+        document.addEventListener('DOMContentLoaded', () => {
+            const spinner = document.getElementById('login');
+            const close = document.getElementById('closeBtn');
+            const front = document.querySelector('.front');
+            const backdrop = document.querySelector('.backdrop');
+
+            function showSpinner() {
+                front.style.display = 'block';
+                backdrop.style.display = 'block';
+          
+            }
+
+            function hideSpinner() {
+                front.style.display = 'none';
+                backdrop.style.display = 'none';
+              
+            }
+
+
+            // Show spinner
+            spinner.addEventListener('click', () => {
+                showSpinner();
+            });
+
+            closeBtn.addEventListener('click', hideSpinner);
+
+
+        });
+
+
+    </script>
+   
+   
+
+ 
+</body>
+</html>
