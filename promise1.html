@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript async / await</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+      }
+      .table-container {
+        width: 33%;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .table td:first-child {
+        text-align: left;
+      }
+      .table td:last-child {
+        text-align: left;
+      }
+      .form-control-sm {
+        width: 60px;
+        display: inline-block;
+      }
+      .table {
+        border-collapse: separate;
+        border-spacing: 10px; /* Add cell spacing */
+        border-style: solid;
+        border-width: 1px;
+        border-color: #d7d7db;
+        border-top-left-radius: 2%;
+        border-top-right-radius: 2%;
+        border-bottom-left-radius: 2%;
+        border-bottom-right-radius: 2%;
+      }
+      .table td {
+        padding: 10px;
+        border-bottom: 2px solid #dee2e6;
+        align-items: start;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="text-center">
+      <label for="userSelect">Select User ID:</label>
+      <br />
+      <select id="userSelect" class="form-control form-control-sm mb-3 w-auto">
+        <!-- Options will be added dynamically -->
+      </select>
+    </div>
+    <div class="table-container">
+      <table class="table table-borderless bg-light py-2 px-2">
+        <tbody id="cardContent">
+          <tr>
+            <td><strong>ID</strong></td>
+            <td id="userId"></td>
+          </tr>
+          <tr>
+            <td><strong>Name</strong></td>
+            <td id="userName"></td>
+          </tr>
+          <tr>
+            <td><strong>Username</strong></td>
+            <td id="userUsername"></td>
+          </tr>
+          <tr>  
+            <td><strong>Email</strong></td>
+            <td id="userEmail"></td>
+          </tr>
+          <tr>
+            <td><strong>Phone</strong></td>
+            <td id="userPhone"></td>
+          </tr>
+          <tr>
+            <td><strong>Website</strong></td>
+            <td id="userWebsite"></td>
+          </tr>
+          <tr>
+            <td><strong>Company</strong></td>
+            <td id="userCompany"></td>
+          </tr>
+          <tr>
+            <td><strong>Address</strong></td>
+            <td style="border-bottom: 0px solid #dee2e6" id="userAddress"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      // Function to fetch user data
+      async function getUserData(userId) {
+        let myPromise = new Promise(function (resolve, reject) {
+          let req = new XMLHttpRequest();
+          req.open(
+            "GET",
+            `https://jsonplaceholder.typicode.com/users/${userId}`
+          );
+          req.onload = function () {
+            if (req.status == 200) {
+              resolve(JSON.parse(req.response));
+            } else {
+              reject("User not found");
+            }
+          };
+          req.send();
+        });
+        return await myPromise;
+      }
+
+      // Function to update the table with user data
+      function updateTable(user) {
+        document.getElementById("userId").textContent = user.id;
+        document.getElementById("userName").textContent = user.name;
+        document.getElementById("userUsername").textContent = user.username;
+        document.getElementById("userEmail").textContent = user.email;
+        document.getElementById("userPhone").textContent = user.phone;
+        document.getElementById("userWebsite").textContent = user.website;
+        document.getElementById("userCompany").textContent = user.company.name;
+        document.getElementById(
+          "userAddress"
+        ).textContent = `${user.address.suite}, ${user.address.street}, ${user.address.city}, ${user.address.zipcode}`;
+      }
+
+      // Function to handle dropdown change
+      document
+        .getElementById("userSelect")
+        .addEventListener("change", async function () {
+          const userId = this.value;
+          const userData = await getUserData(userId);
+          updateTable(userData);
+        });
+
+      // Populate dropdown with user IDs
+      window.onload = function () {
+        const userSelect = document.getElementById("userSelect");
+        for (let i = 1; i <= 10; i++) {
+          const option = `<option value="${i}">${i}</option>`;
+          userSelect.insertAdjacentHTML("beforeend", option);
+        }
+        // Trigger change event to load the first user's data by default
+        userSelect.value = 1;
+        userSelect.dispatchEvent(new Event("change"));
+      };
+    </script>
+  </body>
+</html>
