@@ -1,0 +1,57 @@
+
+C:\Users\hp>systeminfo
+
+Host Name:                 LAPTOP-PK0ATEP3
+OS Name:                   Microsoft Windows 10 Home Single Language
+OS Version:                10.0.19045 N/A Build 19045
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Registered Owner:          hp
+Registered Organization:   HP
+Product ID:                00327-35859-79616-AAOEM
+Original Install Date:     20-05-2024, 07:57:42 AM
+System Boot Time:          22-06-2024, 11:46:18 AM
+System Manufacturer:       HP
+System Model:              OMEN by HP Laptop 15-dc1xxx
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+                           [01]: Intel64 Family 6 Model 158 Stepping 10 GenuineIntel ~1495 Mhz
+BIOS Version:              AMI F.28, 11-07-2023
+Windows Directory:         C:\WINDOWS
+System Directory:          C:\WINDOWS\system32
+Boot Device:               \Device\HarddiskVolume4
+System Locale:             en-us;English (United States)
+Input Locale:              00004009
+Time Zone:                 (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi
+Total Physical Memory:     7,997 MB
+Available Physical Memory: 2,542 MB
+Virtual Memory: Max Size:  15,677 MB
+Virtual Memory: Available: 8,806 MB
+Virtual Memory: In Use:    6,871 MB
+Page File Location(s):     C:\pagefile.sys
+Domain:                    WORKGROUP
+Logon Server:              \\LAPTOP-PK0ATEP3
+Hotfix(s):                 6 Hotfix(s) Installed.
+                           [01]: KB5037587
+                           [02]: KB5037592
+                           [03]: KB5011048
+                           [04]: KB5015684
+                           [05]: KB5037768
+                           [06]: KB5037240
+Network Card(s):           2 NIC(s) Installed.
+                           [01]: Intel(R) Wireless-AC 9560 160MHz
+                                 Connection Name: Wi-Fi
+                                 DHCP Enabled:    Yes
+                                 DHCP Server:     192.168.139.185
+                                 IP address(es)
+                                 [01]: 192.168.139.70
+                                 [02]: fe80::ae45:1d38:d27f:8f
+                                 [03]: 2409:4081:d8c:d2e7:958e:db04:7d36:9c5c
+                                 [04]: 2409:4081:d8c:d2e7:35a3:aa33:5927:afbf
+                           [02]: Realtek Gaming GbE Family Controller
+                                 Connection Name: Ethernet
+                                 Status:          Media disconnected
+Hyper-V Requirements:      A hypervisor has been detected. Features required for Hyper-V will not be displayed.
+
+C:\Users\hp>

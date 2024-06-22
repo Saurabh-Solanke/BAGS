@@ -1,0 +1,43 @@
+OS Name	Microsoft Windows 10 Home Single Language
+Version	10.0.19045 Build 19045
+Other OS Description 	Not Available
+OS Manufacturer	Microsoft Corporation
+System Name	LAPTOP-PK0ATEP3
+System Manufacturer	HP
+System Model	OMEN by HP Laptop 15-dc1xxx
+System Type	x64-based PC
+System SKU	7NM78PA#ACJ
+Processor	Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz, 2592 Mhz, 6 Core(s), 12 Logical Processor(s)
+BIOS Version/Date	AMI F.28, 11-07-2023
+SMBIOS Version	3.2
+Embedded Controller Version	21.17
+BIOS Mode	UEFI
+BaseBoard Manufacturer	HP
+BaseBoard Product	8575
+BaseBoard Version	21.17
+Platform Role	Mobile
+Secure Boot State	On
+PCR7 Configuration	Elevation Required to View
+Windows Directory	C:\WINDOWS
+System Directory	C:\WINDOWS\system32
+Boot Device	\Device\HarddiskVolume4
+Locale	United States
+Hardware Abstraction Layer	Version = "10.0.19041.3636"
+User Name	LAPTOP-PK0ATEP3\hp
+Time Zone	India Standard Time
+Installed Physical Memory (RAM)	8.00 GB
+Total Physical Memory	7.81 GB
+Available Physical Memory	2.34 GB
+Total Virtual Memory	15.3 GB
+Available Virtual Memory	8.50 GB
+Page File Space	7.50 GB
+Page File	C:\pagefile.sys
+Kernel DMA Protection	Off
+Virtualization-based security	Running
+Virtualization-based security Required Security Properties	
+Virtualization-based security Available Security Properties	Base Virtualization Support, Secure Boot, DMA Protection, UEFI Code Readonly, SMM Security Mitigations 1.0, Mode Based Execution Control
+Virtualization-based security Services Configured	
+Virtualization-based security Services Running	
+Device Encryption Support	Elevation Required to View
+A hypervisor has been detected. Features required for Hyper-V will not be displayed.	
+
